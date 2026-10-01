@@ -44,14 +44,24 @@ const secondPromise = new Promise((resolve, reject) => {
   });
 });
 
-secondPromise.then((message) => {
-  const notification = document.createElement('div');
+secondPromise.then(
+  (message) => {
+    const notification = document.createElement('div');
 
-  notification.dataset.qa = 'notification';
-  notification.classList.add('success');
-  notification.textContent = message;
-  document.body.append(notification);
-});
+    notification.dataset.qa = 'notification';
+    notification.classList.add('success');
+    notification.textContent = message;
+    document.body.append(notification);
+  },
+  (error) => {
+    const notification = document.createElement('div');
+
+    notification.dataset.qa = 'notification';
+    notification.classList.add('error');
+    notification.textContent = error.message;
+    document.body.append(notification);
+  },
+);
 
 const thirdPromise = new Promise((resolve, reject) => {
   let leftClicked = false;
@@ -77,11 +87,21 @@ const thirdPromise = new Promise((resolve, reject) => {
   });
 });
 
-thirdPromise.then((message) => {
-  const notification = document.createElement('div');
+thirdPromise.then(
+  (message) => {
+    const notification = document.createElement('div');
 
-  notification.dataset.qa = 'notification';
-  notification.classList.add('success');
-  notification.textContent = message;
-  document.body.append(notification);
-});
+    notification.dataset.qa = 'notification';
+    notification.classList.add('success');
+    notification.textContent = message;
+    document.body.append(notification);
+  },
+  (error) => {
+    const notification = document.createElement('div');
+
+    notification.dataset.qa = 'notification';
+    notification.classList.add('error');
+    notification.textContent = error.message;
+    document.body.append(notification);
+  },
+);
